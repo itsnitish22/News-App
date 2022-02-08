@@ -2,15 +2,15 @@ import 'dart:convert';
 
 import 'package:http/http.dart' as http;
 import 'package:news_app/constant/strings.dart';
-import 'package:news_app/models/newsInfo.dart';
+import 'package:news_app/models/news_info.dart';
 
 class ApiManager {
   Future<NewsModel> getNews() async {
     var client = http.Client();
-    var newsModel;
+    dynamic newsModel;
 
     try {
-      var url = Uri.parse(Strings.NEWS_URL);
+      var url = Uri.parse(Strings.newsUrl);
       var response = await client.get(url);
       if (response.statusCode == 200) {
         var jsonString = response.body;
@@ -18,7 +18,7 @@ class ApiManager {
 
         newsModel = NewsModel.fromJson(jsonMap);
       }
-    } catch (Exception) {
+    } on Exception {
       return newsModel;
     }
 
