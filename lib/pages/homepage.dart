@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/models/newsInfo.dart';
 import 'package:intl/intl.dart';
+import 'package:news_app/models/newsInfo.dart';
 import 'package:news_app/services/apimanager.dart';
 
 class HomePage extends StatefulWidget {
